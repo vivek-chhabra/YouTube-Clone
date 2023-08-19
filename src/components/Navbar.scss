@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Aoboshi+One&family=Comforter&family=Dancing+Script:wght@400;600&family=Diphylleia&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,500&family=Inconsolata:wght@200;400;600&family=Lobster&family=Montserrat:wght@100;200;300;400&family=Mukta:wght@200;400&family=Noto+Serif:wght@300;400;500;600&family=Nunito:wght@200;300;400;700;900&family=Oswald:wght@200;400;600&family=Playfair:wght@300&family=Poppins:wght@300;400&family=Roboto+Condensed:wght@300;400&family=Rubik:wght@300;400&family=Tsukimi+Rounded:wght@300;400;500;600&family=Work+Sans:wght@100;200;300&family=Yanone+Kaffeesatz:wght@200;400;600&display=swap");
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.Navbar {
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem;
+    padding: 10px 20px;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    background-color: #0E0E0F;
+    z-index: 10;
+
+    .left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        .material-symbols-outlined {
+            font-size: 2.5rem;
+            padding: 0.8rem;
+            border-radius: 50%;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.121);
+                cursor: pointer;
+            }
+        }
+    }
+
+    .input-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0.5rem;
+
+        input {
+            font-size: 1.6rem;
+            max-width: 600px;
+            border-radius: 50rem 0 0 50rem;
+            padding: 0.8rem 1.5rem;
+            background-color: $black-primary;
+            border: 1px solid rgba(252, 252, 252, 0.16);
+            color: white;
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.422);
+                font-weight: 400;
+            }
+
+            &:focus {
+                border-color: rgb(0, 116, 183);
+            }
+        }
+
+        button {
+            padding: 0.8rem 3rem;
+            border-radius: 0 50px 50px 0 !important;
+            font-size: 1.6rem;
+            background-color: $light-bg;
+            border: 1px solid rgba(252, 252, 252, 0.098);
+            border-left: none;
+            position: relative;
+
+            &:hover {
+                color: lighten($border-color, 20);
+                background-color: $hover-light-bg;
+                & > span {
+                    display: block;
+                }
+            }
+
+            span {
+                position: absolute;
+                top: 7rem;
+                right: 0.5rem;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                font-size: 1.4rem;
+                background-color: $light-bg;
+                display: none;
+            }
+        }
+
+        .voice-search {
+            width: 4.4rem;
+            height: 4.4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: 20px;
+            border-radius: 50% !important;
+            background-color: $light-bg;
+
+            &:hover {
+                background-color: $hover-light-bg;
+                cursor: pointer;
+                & > span {
+                    display: block;
+                }
+            }
+
+            position: relative;
+            span {
+                position: absolute;
+                top: 7.2rem;
+                right: -9rem;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                font-size: 1.4rem;
+                white-space: pre;
+                background-color: $light-bg;
+                display: none;
+            }
+        }
+    }
+
+    .right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        @include avatar(35, 35);
+
+        .img {
+            margin-left: 1rem;
+        }
+
+        .hover {
+            width: 4.1rem;
+            height: 4.1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+
+            &:hover {
+                background-color: $hover-light-bg;
+
+                & > span {
+                    display: block;
+                }
+            }
+
+            span {
+                position: absolute;
+                top: 7.2rem;
+                /* right: -9rem; */
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                font-size: 1.4rem;
+                white-space: pre;
+                background-color: $light-bg;
+                font-family: "Poppins", sans-serif;
+                display: none;
+            }
+        }
+
+        & * {
+            cursor: pointer;
+        }
+
+        i {
+            font-size: 2.2rem;
+        }
+    }
+}

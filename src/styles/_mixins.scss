@@ -1,0 +1,15 @@
+/* avatar */
+@mixin avatar($width, $hieght) {
+    .img {
+        flex: none;
+        width: $width * 1px;
+        height: $hieght * 1px;
+        border-radius: 50%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+    }
+}

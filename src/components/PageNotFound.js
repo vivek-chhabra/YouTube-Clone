@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useToggle } from "../hooks/useToggle";
 import { NavLink } from "react-router-dom";
-import "./PageNotFound.css";
+import "./PageNotFound.scss";
 
 export default function PageNotFound() {
     const [hover, toggleHover] = useToggle(false);
