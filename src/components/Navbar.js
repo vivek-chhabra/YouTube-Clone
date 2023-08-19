@@ -5,8 +5,9 @@ import { useState } from "react";
 import ListeningModal from "./ListeningModal";
 import { useInput } from "../hooks/useInput";
 import { useEffect } from "react";
+import { useToggle } from "../hooks/useToggle";
 
-export default function Navbar() {
+export default function Navbar({ toggleSidebar }) {
     // state
     const [isListening, setIsListening] = useState(false);
     const [microphoneClicked, setMicrophoneClicked] = useState(false);
@@ -19,7 +20,7 @@ export default function Navbar() {
         if (!microphoneClicked) {
             setInput(transcript);
         }
-    }, [microphoneClicked])
+    }, [microphoneClicked]);
 
     if (!SpeechRecognition.browserSupportsSpeechRecognition) {
         return null;
@@ -68,7 +69,9 @@ export default function Navbar() {
                 ""
             )}
             <div className="left">
-                <span class="material-symbols-outlined">menu</span>
+                <span class="material-symbols-outlined" onClick={toggleSidebar}>
+                    menu
+                </span>
                 <img src={require("../assets/logo.png")} height={"40px"} alt="" />
             </div>
             <div className="input-group mb-3">
