@@ -12,6 +12,10 @@
     padding: 1rem;
     position: fixed;
 
+    @include lg {
+        // width: fit-content;
+    }
+
     &.hide {
         transform: translateX(-230px);
     }
@@ -43,10 +47,29 @@
         }
     }
 
+    & > * {
+        @include lg {
+            width: fit-content;
+            padding-left: 1rem !important;
+            margin-left: 0.8rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    & .link-text {
+        @include lg {
+            display: none;
+        }
+    }
+
     .hr {
         width: 100%;
         border-top: 1px solid $hover-light-bg;
         margin-block: 0.5rem;
+
+        @include lg {
+            display: none;
+        }
     }
 
     &::-webkit-scrollbar {

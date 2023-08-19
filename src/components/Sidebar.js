@@ -16,32 +16,32 @@ export default function Sidebar({isSidebarActive}) {
         <div className={isSidebarActive ? "Sidebar" : "Sidebar hide"}>
             <NavLink to={"/"} className="item" id="item-1">
                 {home}
-                Home
+                <span className="link-text">Home</span>
             </NavLink>
             <NavLink to={"/subscription"} className="item" id="item-2">
                 {subscription}
-                Subscription
+                <span className="link-text">Subscription</span>
             </NavLink>
             <div className="hr"></div>
             <NavLink to={"/liked"} className="item" id="item-3">
                 {liked}
-                Liked
+                <span className="link-text">Liked</span>
             </NavLink>
             <NavLink to={"/history"} className="item" id="item-4">
                 {history}
-                History
+                <span className="link-text">History</span>
             </NavLink>
             <NavLink to={"/library"} className="item" id="item-5">
                 {library}
-                Library
+                <span className="link-text">Library</span>
             </NavLink>
             <NavLink to={"/disliked"} className="item" id="item-6">
                 {disliked}
-                Disliked
+                <span className="link-text">Disliked</span>
             </NavLink>
             <NavLink to={"/logout"} className="item" id="item-7">
                 {logout}
-                Logout
+                <span className="link-text">Logout</span>
             </NavLink>
         </div>
     );
