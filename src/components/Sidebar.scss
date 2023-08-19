@@ -12,6 +12,8 @@
     font-size: 1.6rem;
     padding: 1rem;
     position: fixed;
+    z-index: 5;
+    background-color: $black-primary;
 
     @include lg {
         // width: fit-content;

@@ -91,6 +91,7 @@ export default function Navbar({ toggleSidebar }) {
                     <span>Apps</span>
                 </span>
                 <i class="hover fa-regular fa-bell">
+                    <div className="num">3</div>
                     <span>Notifications</span>
                 </i>
                 <div className="img">

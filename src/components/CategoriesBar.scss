@@ -6,13 +6,12 @@
     display: flex;
     justify-content: flex;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding: 3rem 1.5rem;
     gap: 1.5rem;
     overflow-x: auto;
     margin-left: auto;
-    position: fixed;
-    top: 7rem !important;
     width: 100%;
+    background-color: $black-primary;
 
     &::-webkit-scrollbar {
         display: none;

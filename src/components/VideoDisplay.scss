@@ -1,0 +1,76 @@
+@import "../styles/breakpoints";
+@import "../styles/mixins";
+@import "../styles/variables";
+
+.VideoDisplay {
+    padding: 1rem;
+    min-width: 34rem !important;
+    gap: 1.5rem;
+    font-size: 1.6rem;
+
+    & > .img {
+        flex: none;
+        min-width: 100%;
+        width: 100%;
+        height: 20rem;
+        border-radius: 1rem;
+        justify-content: center;
+
+        .duration {
+            position: absolute;
+            bottom: 0.7rem;
+            right: 1rem;
+            font-size: 1.2rem;
+            padding: 0.3rem 0.8rem;
+            padding-bottom: 0.2rem;
+            border-radius: 0.5rem;
+            background-color: rgba($black-primary, 0.8);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+
+        &:hover {
+            border-radius: 0px;
+
+            & img {
+                border-radius: 0rem;
+            }
+        }
+    }
+    .content {
+        gap: 0.5rem;
+
+        .title {
+            @include avatar(30, 30);
+            gap: 1.7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: white;
+
+            span {
+                // to show the title within 2 lines
+                @include line-wrap(2);
+            }
+        }
+
+        .middle,
+        .channel-name {
+            gap: 0.5rem;
+            color: lighten($border-color, 30);
+            font-weight: 600;
+            font-size: 1.34rem;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
