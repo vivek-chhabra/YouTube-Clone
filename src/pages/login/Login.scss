@@ -1,0 +1,70 @@
+@import "../../styles/breakpoints";
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.Login {
+    width: 100vw;
+    height: 100vh;
+    background-color: $black-primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.6rem;
+    position: absolute;
+    top: -7.2rem;
+    left: 0;
+    z-index: 99;
+
+    form {
+        padding: 2rem 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        border-radius: 1rem;
+        background-color: rgba($light-bg, 0.7);
+
+        img {
+            width: 14rem;
+        }
+
+        button {
+            font-size: 1.4rem;
+            padding: 1rem 1.5rem;
+            border-radius: 0.8rem;
+            letter-spacing: 1px;
+            color: white;
+            background-color: rgba($hover-light-bg, 0.5);
+            border: none;
+            outline: none;
+            width: fit-content;
+            margin-inline: auto;
+
+            @include md {
+                padding: 0.8rem 1rem;
+            }
+
+            &:hover {
+                background-color: rgba($hover-light-bg, 0.8);
+            }
+        }
+
+
+        // responsiveness
+        @include lg {
+            padding: 1rem 2rem;
+            padding-bottom: 2rem;
+
+            img {
+                width: 12rem;
+            }
+        }
+        @include md {
+            img {
+                width: 10rem;
+            }
+        }
+    }
+}

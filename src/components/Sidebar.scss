@@ -16,11 +16,11 @@
     background-color: $black-primary;
 
     @include lg {
-        // width: fit-content;
+        width: fit-content;
     }
 
     &.hide {
-        transform: translateX(-230px);
+        transform: translateX(-23rem);
     }
 
     .active {
@@ -76,18 +76,17 @@
     }
 
     &::-webkit-scrollbar {
-        width: 14px;
+        width: 1.4rem;
     }
 
     &::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 14px 14px transparent;
-        border: solid 4px transparent;
+        box-shadow: inset 0 0 1.4rem 1.4rem transparent;
+        border: solid .4rem transparent;
     }
 
     &::-webkit-scrollbar-thumb {
-        // box-shadow: inset 0 0 14px 14px lighten($soft-bg, 4);
-        border: solid 4px transparent;
-        border-radius: 14px;
+        border: solid .4rem transparent;
+        border-radius: 1.4rem;
     }
 
     &::-webkit-scrollbar-button {

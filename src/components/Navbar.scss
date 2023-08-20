@@ -94,6 +94,10 @@
                 font-size: 1.2rem;
                 background-color: $light-bg;
                 display: none;
+
+                @include sm {
+                    display: none !important;
+                }
             }
         }
 
@@ -133,6 +137,10 @@
                 white-space: pre;
                 background-color: $light-bg;
                 display: none;
+
+                @include sm {
+                    display: none !important;
+                }
             }
         }
     }
@@ -178,6 +186,10 @@
                 background-color: $light-bg;
                 font-family: "Poppins", sans-serif;
                 display: none;
+
+                @include sm {
+                    display: none !important;
+                }
             }
 
             .num {

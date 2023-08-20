@@ -12,6 +12,20 @@
     margin-left: auto;
     width: 100%;
     background-color: $black-primary;
+    transform: translateX(0rem);
+
+    @include sm {
+        padding: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    &.active-sidebar {
+        transform: translateX(23rem);
+
+        @include lg {
+            transform: translateX(8rem);
+        }
+    }
 
     &::-webkit-scrollbar {
         display: none;

@@ -35,7 +35,7 @@ export default function CategoriesBar({isSidebarActive}) {
     };
 
     return (
-        <div className="CategoriesBar" style={isSidebarActive ? {transform: 'translateX(230px)'} : {transform: 'translateX(0px)'}}>
+        <div className={isSidebarActive ? "CategoriesBar active-sidebar" : 'CategoriesBar'}>
             {categories.map((cate, idx) => {
                 return (
                     <span className={activeElement === cate ? "cate active" : "cate"} key={idx} onClick={() => handleClick(cate)}>

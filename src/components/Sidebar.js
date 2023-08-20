@@ -10,8 +10,9 @@ const history = <span class="material-symbols-outlined">history</span>;
 const library = <span class="material-symbols-outlined">video_library</span>;
 const logout = <span class="material-symbols-outlined">logout</span>;
 const disliked = <span class="material-symbols-outlined">thumb_down</span>;
+const login = <span class="material-symbols-outlined">login</span>;
 
-export default function Sidebar({isSidebarActive}) {
+export default function Sidebar({ isSidebarActive }) {
     return (
         <div className={isSidebarActive ? "Sidebar" : "Sidebar hide"}>
             <NavLink to={"/"} className="item" id="item-1">
@@ -39,7 +40,11 @@ export default function Sidebar({isSidebarActive}) {
                 {disliked}
                 <span className="link-text">Disliked</span>
             </NavLink>
-            <NavLink to={"/logout"} className="item" id="item-7">
+            <NavLink to={"/login"} className="item" id="item-7">
+                {login}
+                <span className="link-text">Login</span>
+            </NavLink>
+            <NavLink to={"/logout"} className="item" id="item-8">
                 {logout}
                 <span className="link-text">Logout</span>
             </NavLink>
