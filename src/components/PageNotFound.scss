@@ -2,7 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,500&family=Foldit:wght@400;500;600&family=Monoton&family=Poppins:wght@700;800&family=Rubik+Pixels&family=Tilt+Prism&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Narnoor&family=Nunito:wght@200;300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Narnoor&family=Nunito:wght@200;300;400&family=Open+Sans:wght@300;400;500;600;700&display=swap");
-
+@import "../styles/variables";
+@import "../styles/breakpoints";
+@import "../styles/mixins";
 
 .PageNotFound {
     width: 100%;
@@ -10,55 +12,84 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    gap: 60px;
-    padding-left: 170px;
-    background-color: white;
+    align-items: center;
+    gap: 6rem;
+    text-align: center;
+    background-color: $black-primary;
     font-size: 1.6rem;
+    position: absolute;
+    top: -7.5rem;
+    left: 0;
+    z-index: 99;
+    padding: 2rem 5rem;
 }
 
 .error404 {
-    font-size: 200px;
-    color: #FFBC69;
+    font-size: 20rem;
+    color: lighten($hover-light-bg, 50);
     border: 1px;
     font-family: "Monoton", cursive;
     margin-inline: 0px;
+
+    @include md {
+        font-size: 18rem;
+    }
 }
 
 .content {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
 .content h2 {
     font-weight: 700;
-    font-size: 37px !important;
-    color: #3f2d19;
-    width: 700px;
+    font-size: 3.7rem !important;
+    color: $hover-light-bg;
+    width: 70rem;
+
+    @include md {
+        font-size: 3.2rem !important;
+        width: 95%;
+    }
+
+    @include sm {
+        font-size: 2rem !important;
+    }
 }
 
 .content .message {
-    color: #3f2d19;
-    width: 500px;
+    color: $hover-light-bg;
+    width: 50rem;
     font-weight: 600;
+
+
+    @include md {
+        width: 70%;
+    }
+
+    @include sm {
+        font-size: 1rem !important;
+    }
 }
 
 .button {
-    width: 300px;
+    width: 30rem;
     display: flex;
-    padding-block: 10px;
+    padding-block: 1rem;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    background-color: #3f2d19;
+    gap: 1rem;
+    background-color: $light-bg;
     color: #ffffff;
     text-decoration: none;
 }
 
 .hover {
-    translate: -10px;
+    translate: -1rem;
     transition: all 0.2s ease-in-out;
 }
 
@@ -68,5 +99,5 @@
 
 .content,
 .button {
-    bottom: 100px;
+    bottom: 10rem;
 }

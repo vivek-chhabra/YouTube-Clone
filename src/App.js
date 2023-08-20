@@ -22,6 +22,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home isSidebarActive={isSidebarActive} />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="*" element={<PageNotFound />} />
                 </Routes>
             </div>
         </div>
