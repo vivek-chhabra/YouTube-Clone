@@ -62,4 +62,3 @@ function useSignUpAuth(firstName, lastName, email, password) {
 }
 
 export { useSignUpAuth };
-n

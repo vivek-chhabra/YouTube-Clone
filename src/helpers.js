@@ -1,4 +1,4 @@
-import "./helpers.css";
+import "./helpers.scss";
 
 function randNum(max, min = 0) {
     let rand = Math.floor(Math.random() * (max + 1 - min)) + min;
@@ -59,8 +59,10 @@ function replaceEle(array, index, element) {
 function ErrorMsg({ error }) {
     return (
         <div className="alert error alert-danger alert-dismissible fade show" role="alert">
-            <strong>Error : </strong>
-            {error}
+            <div>
+                <strong>Error : </strong>
+                {error}
+            </div>
             <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     );
@@ -84,4 +86,7 @@ function PrimaryMsg({ msg }) {
     );
 }
 
-export { randNum, displayFlex, currencyFormat, randBool, capitalize, ErrorMsg, numDivisibleBy, SuccessMsg, PrimaryMsg, removeEle, replaceEle };
+// youtube api key
+const YT_KEY = "AIzaSyBK4Qk3UcRdq9XnLh2u3_Y64R5uz2ruy9I";
+
+export { randNum, displayFlex, currencyFormat, randBool, capitalize, ErrorMsg, numDivisibleBy, SuccessMsg, PrimaryMsg, removeEle, replaceEle, YT_KEY };

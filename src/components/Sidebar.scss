@@ -2,7 +2,6 @@
 @import "../styles/mixins";
 @import "../styles/variables";
 
-
 .Sidebar {
     height: 100vh;
     width: 22rem;
@@ -59,6 +58,45 @@
         }
     }
 
+    .nav-signin {
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+        p {
+            @include line-wrap(2);
+        }
+
+        .sign-in {
+            padding: 0.5rem 0.8rem;
+            padding-right: 1.2rem;
+            color: #3992e1;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.196);
+            white-space: pre;
+
+            i {
+                font-size: 1.4rem;
+                width: 2.6rem;
+                height: 2.5rem;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid;
+            }
+
+            &:hover {
+                background-color: #3993e133;
+                border: 1px solid rgba(128, 128, 128, 0);
+            }
+        }
+    }
+
     & .link-text {
         @include lg {
             display: none;
@@ -81,11 +119,11 @@
 
     &::-webkit-scrollbar-track {
         box-shadow: inset 0 0 1.4rem 1.4rem transparent;
-        border: solid .4rem transparent;
+        border: solid 0.4rem transparent;
     }
 
     &::-webkit-scrollbar-thumb {
-        border: solid .4rem transparent;
+        border: solid 0.4rem transparent;
         border-radius: 1.4rem;
     }
 

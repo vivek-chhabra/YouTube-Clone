@@ -1,8 +1,8 @@
-import React from "react";
-import "./ListeningModal.scss";
 import { useToggle } from "../hooks/useToggle";
 import { useEffect } from "react";
 import { useState } from "react";
+import "./ListeningModal.scss";
+import React from "react";
 
 export default function ListeningModal({ handleMicrophoneClicked, setMicrophoneClicked, handleRemoveModal, handleStart, handleStop, isListening, setIsListening, transcript }) {
     // state

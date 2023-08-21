@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBK4Qk3UcRdq9XnLh2u3_Y64R5uz2ruy9I",
@@ -13,4 +13,5 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const googleAuth = new GoogleAuthProvider();
+export const googleProvider = new GoogleAuthProvider().addScope('https://www.googleapis.com/auth/youtube.force-ssl');
+

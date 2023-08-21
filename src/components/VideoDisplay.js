@@ -1,5 +1,5 @@
-import React from "react";
 import "./VideoDisplay.scss";
+import React from "react";
 
 export default function VideoDisplay() {
     return (

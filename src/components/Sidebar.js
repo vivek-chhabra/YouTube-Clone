@@ -1,6 +1,13 @@
+import { NavLink, useNavigate } from "react-router-dom";
 import React from "react";
 import "./Sidebar.scss";
-import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { initialAuth, logoutAuth } from "../redux/slice/authSlice";
+import { auth } from "../firebase/config";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { useState } from "react";
+import { getDefaultMiddleware } from "@reduxjs/toolkit";
 
 // icons
 const home = <span class="material-symbols-outlined">home</span>;
@@ -13,6 +20,35 @@ const disliked = <span class="material-symbols-outlined">thumb_down</span>;
 const login = <span class="material-symbols-outlined">login</span>;
 
 export default function Sidebar({ isSidebarActive }) {
+    // dispatch
+    const dispatch = useDispatch();
+
+    // handle logout
+    const handleLogout = () => {
+        dispatch(logoutAuth());
+        dispatch(initialAuth());
+    };
+
+    // selector
+    const state = useSelector((data) => {
+        return data;
+    });
+    const { error, isPending, user } = state.auth;
+
+    // initial auth
+    useEffect(() => {
+        const unSub = onAuthStateChanged(auth, (user) => {
+            dispatch(initialAuth(user));
+        });
+
+        return unSub();
+    }, []);
+
+    // to avoid serializableCheck error
+    const customizedMiddleware = getDefaultMiddleware({
+        serializableCheck: false,
+    });
+
     return (
         <div className={isSidebarActive ? "Sidebar" : "Sidebar hide"}>
             <NavLink to={"/"} className="item" id="item-1">
@@ -40,14 +76,30 @@ export default function Sidebar({ isSidebarActive }) {
                 {disliked}
                 <span className="link-text">Disliked</span>
             </NavLink>
-            <NavLink to={"/login"} className="item" id="item-7">
-                {login}
-                <span className="link-text">Login</span>
-            </NavLink>
-            <NavLink to={"/logout"} className="item" id="item-8">
-                {logout}
-                <span className="link-text">Logout</span>
-            </NavLink>
+            {!user && (
+                <>
+                    <div className="hr"></div>
+                    <div className="nav-signin flex-column">
+                        <p>Sign in to like videos, comment, and subscribe.</p>
+                        <NavLink to={"/login"} className="sign-in">
+                            <i class="fa-regular fa-user"></i> Sign in
+                        </NavLink>
+                    </div>
+                    <div className="hr"></div>
+                </>
+            )}
+            {user &&
+                (isPending ? (
+                    <div className="item" id="item-8">
+                        {/* {logout} */}
+                        <span className="link-text">Logging Out...</span>
+                    </div>
+                ) : (
+                    <div onClick={handleLogout} className="item" id="item-8">
+                        {logout}
+                        <span className="link-text">Logout</span>
+                    </div>
+                ))}
         </div>
     );
 }

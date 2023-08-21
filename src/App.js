@@ -1,12 +1,13 @@
-import { Route, Routes } from "react-router-dom";
-import "../src/styles/_main.scss";
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
-import { useToggle } from "./hooks/useToggle";
 import CategoriesBar from "./components/CategoriesBar";
-import Home from "./pages/home/Home";
-import Login from "./pages/login/Login";
 import PageNotFound from "./components/PageNotFound";
+import { Route, Routes } from "react-router-dom";
+import { useToggle } from "./hooks/useToggle";
+import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
+import Login from "./pages/login/Login";
+import Home from "./pages/home/Home";
+import "../src/styles/_main.scss";
+
 
 function App() {
     const [isSidebarActive, toggleSidebar] = useToggle(true);

@@ -59,6 +59,11 @@
 .primary {
     margin-block: 30px;
     font-family: "Poppins", sans-serif;
+    display: flex;  
+
+    div {
+        margin-right: 6rem;
+    }
 }
 .error strong,
 .success .strong,

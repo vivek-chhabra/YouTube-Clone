@@ -1,6 +1,6 @@
 @import "../../styles/breakpoints";
-@import "../../styles/mixins";
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
 .Login {
     width: 100vw;
@@ -30,7 +30,7 @@
             width: 14rem;
         }
 
-        button {
+        button, div {
             font-size: 1.4rem;
             padding: 1rem 1.5rem;
             border-radius: 0.8rem;

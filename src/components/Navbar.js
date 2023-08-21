@@ -1,11 +1,11 @@
+import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
+import ListeningModal from "./ListeningModal";
+import { useEffect } from "react";
+import { useState } from "react";
 import React from "react";
 import "./Navbar.scss";
-import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
-import { useState } from "react";
-import ListeningModal from "./ListeningModal";
-import { useInput } from "../hooks/useInput";
-import { useEffect } from "react";
-import { useToggle } from "../hooks/useToggle";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar({ toggleSidebar }) {
     // state
@@ -21,6 +21,14 @@ export default function Navbar({ toggleSidebar }) {
             setInput(transcript);
         }
     }, [microphoneClicked]);
+
+    // selector
+    const { user, error, isPending } = useSelector((data) => data.auth);
+    // useEffect(() => {
+    //     if(user) {
+
+    //     }
+    // }, [user])
 
     if (!SpeechRecognition.browserSupportsSpeechRecognition) {
         return null;
@@ -86,17 +94,25 @@ export default function Navbar({ toggleSidebar }) {
                 </div>
             </div>
             <div className="right">
-                <span class="hover material-symbols-outlined">
-                    apps
-                    <span>Apps</span>
-                </span>
-                <i class="hover fa-regular fa-bell">
-                    <div className="num">3</div>
-                    <span>Notifications</span>
-                </i>
-                <div className="img">
-                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="" />
-                </div>
+                {user ? (
+                    <>
+                        <span class="hover material-symbols-outlined">
+                            apps
+                            <span>Apps</span>
+                        </span>
+                        <i class="hover fa-regular fa-bell">
+                            <div className="num">3</div>
+                            <span>Notifications</span>
+                        </i>
+                        <div className="img">
+                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="" />
+                        </div>
+                    </>
+                ) : (
+                    <NavLink to={"/login"} className="sign-in">
+                        <i class="fa-regular fa-user"></i> Sign in
+                    </NavLink>
+                )}
             </div>
         </div>
     );

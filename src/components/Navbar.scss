@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Aoboshi+One&family=Comforter&family=Dancing+Script:wght@400;600&family=Diphylleia&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,500&family=Inconsolata:wght@200;400;600&family=Lobster&family=Montserrat:wght@100;200;300;400&family=Mukta:wght@200;400&family=Noto+Serif:wght@300;400;500;600&family=Nunito:wght@200;300;400;700;900&family=Oswald:wght@200;400;600&family=Playfair:wght@300&family=Poppins:wght@300;400&family=Roboto+Condensed:wght@300;400&family=Rubik:wght@300;400&family=Tsukimi+Rounded:wght@300;400;500;600&family=Work+Sans:wght@100;200;300&family=Yanone+Kaffeesatz:wght@200;400;600&display=swap");
+@import "../styles/breakpoints";
 @import "../styles/variables";
 @import "../styles/mixins";
-@import "../styles/breakpoints";
 
 .Navbar {
     justify-content: space-between;
@@ -153,6 +153,36 @@
 
         .img {
             margin-left: 1rem;
+        }
+
+        .sign-in {
+            padding: 0.5rem .8rem;
+            padding-right: 1.2rem;
+            color: #3992e1;
+            font-size: 1.4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.196);
+            white-space: pre;
+
+            i {
+                font-size: 1.4rem;
+                width: 2.6rem;
+                height: 2.5rem;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid ;
+            }
+
+            &:hover {
+                background-color: #3993e133;
+                border: 1px solid rgba(128, 128, 128, 0);
+            }
         }
 
         .hover {
