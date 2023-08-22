@@ -60,10 +60,18 @@
     margin-block: 30px;
     font-family: "Poppins", sans-serif;
     display: flex;  
+    font-size: 1.6rem;
+    margin-inline: 3rem;
+    border-radius: .8rem;
 
     div {
         margin-right: 6rem;
     }
+}
+.error {
+    background-color: rgb(70, 43, 43);
+    color: white;
+    border: 2px solid rgb(225, 81, 81);
 }
 .error strong,
 .success .strong,

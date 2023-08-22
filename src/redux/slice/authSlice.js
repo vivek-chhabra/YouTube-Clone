@@ -7,6 +7,7 @@ const initialState = {
     user: null,
     error: null,
     isPending: false,
+    isAuthReady: false,
 };
 
 // createAsyncThunk
@@ -27,22 +28,26 @@ const authSlice = createSlice({
         initialAuth: (state, action) => {
             state.user = action.payload;
             state.error = null;
+            state.isAuthReady = true;
         },
     },
     extraReducers: (builder) => {
         builder.addCase(loginAuth.pending, (state) => {
             state.isPending = true;
             state.error = null;
+            state.isAuthReady = false;
         });
         builder.addCase(loginAuth.fulfilled, (state, action) => {
             state.isPending = false;
             state.user = action.payload;
+            state.isAuthReady = true;
         });
         builder.addCase(loginAuth.rejected, (state, action) => {
             console.log(action.error.message);
             state.isPending = false;
             state.error = action.error.message;
             state.user = null;
+            state.isAuthReady = true;
         });
     },
 });

@@ -1,25 +1,50 @@
+import moment from "moment/moment";
 import "./VideoDisplay.scss";
 import React from "react";
+import numeral from "numeral";
+import { useEffect } from "react";
+import request from "../API";
+import { useState } from "react";
 
-export default function VideoDisplay() {
+export default function VideoDisplay({ video }) {
+    // state
+    const [channelUrl, setChannelUrl] = useState("");
+
+    // fetching the data to get the channel image url
+    useEffect(() => {
+        (async () => {
+            const res = await request("/channels", {
+                params: {
+                    part: "snippet",
+                    id: video.snippet.channelId,
+                },
+            });
+            setChannelUrl(res.data.items[0].snippet.thumbnails.medium.url);
+        })();
+    }, []);
+
+    // duration
+    const seconds = moment.duration(video.contentDetails.duration).asSeconds();
+    const _duration = moment.utc(seconds * 1000).format("mm:ss");
+
+    // console.log('in videodisplay', video)
     return (
         <div className="VideoDisplay flex-column">
             <div className="img ">
-                <img src="https://images.unsplash.com/photo-1692198669686-0a3959951e11?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" />
-                <div className="duration">05:30</div>
+                <img src={video.snippet.thumbnails.high.url} alt="" />
+                <div className="duration">{_duration}</div>
             </div>
             <div className="content flex-column">
                 <div className="title flex">
                     <div className="img flex">
-                        <img src="https://yt3.ggpht.com/WrjDeIWr2pmRdCKFuEDfvkovr0O_o7gyfT_J_AMJjFk5KR9HGQVirOP0DeimyAoBUHRfH79X=s68-c-k-c0x00ffffff-no-rj" alt="" />
+                        <img src={channelUrl} alt="" />
                     </div>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, harum. Iusto laborum quam beatae optio.</span>
+                    <span>{video.snippet.title}</span>
                 </div>
                 <div className="middle flex">
-                    <div className="number-of-views">Sony Sub</div> ●
-                    <div className="posted-on">3 days ago</div> 
+                    <div className="number-of-views">{numeral(video.statistics.viewCount).format("0.a")} views</div> ● <div className="posted-on">{moment(video.snippet.publishedAt).fromNow()}</div>
                 </div>
-                <div className="channel-name">TradeFolks</div>
+                <div className="channel-name">{video.snippet.channelTitle}</div>
             </div>
         </div>
     );

@@ -106,6 +106,7 @@ export default function Navbar({ toggleSidebar }) {
                         </i>
                         <div className="img">
                             <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="" />
+                            {/* <span>Notifications</span> */}
                         </div>
                     </>
                 ) : (
